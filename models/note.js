@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-
 // OLD
 // const password = process.argv[2];
 // NEW
@@ -23,8 +22,15 @@ mongoose
   });
 
 const noteSchema = new mongoose.Schema({
-  content: String,
-  date: Date,
+  content: {
+    type: String,
+    minlength: 7,
+    required: true,
+  },
+  date: {
+    type: Date,
+    required: true,
+  },
   important: Boolean,
 });
 
