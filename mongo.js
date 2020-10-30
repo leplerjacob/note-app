@@ -4,11 +4,13 @@ if(process.argv.length < 3) {
     process.exit(1);
 }
 
-// const password = process.argv[2];
+const password = process.argv[2];
 
-const url = "mongodb+srv://fullstack:fullstack@fullstackopen.vpiva.mongodb.net/note-app?retryWrites=true&w=majority"
+const url = `mongodb+srv://fullstack:${password}@fullstackopen.vpiva.mongodb.net/note-app?retryWrites=true&w=majority`
 
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
+mongoose.connect(url, { useNewUrlParser: true })
+
+
 
 const noteSchema = new mongoose.Schema({
     content: String,
