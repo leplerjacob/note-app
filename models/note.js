@@ -5,7 +5,7 @@ require('dotenv').config()
 // const password = process.argv[2];
 // NEW
 
-const url = process.env.MONGODB_URI;
+const url = process.env.REACT_APP_MONGODB_URI;
 
 console.log("connecting to ", url);
 
