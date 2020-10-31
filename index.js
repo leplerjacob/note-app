@@ -1,6 +1,8 @@
-if(process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
-}
+require('dotenv').config()
+
+console.log(process.env.MONGODB_URI);
+// if(process.env.NODE_ENV !== 'production') {
+// }
 const morgan = require("morgan");
 const express = require("express");
 const app = express();

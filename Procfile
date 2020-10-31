@@ -1,1 +1,1 @@
-web: node index.js fullstack
+web: node index.js

@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
+require('dotenv').config()
 
 // OLD
 // const password = process.argv[2];
 // NEW
+
 const url = process.env.MONGODB_URI;
 
 console.log("connecting to ", url);
