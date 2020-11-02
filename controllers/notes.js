@@ -21,7 +21,7 @@ notesRouter.get('/:id', (request, response, next) => {
     })
 })
 
-notesRouter.post('/api/notes', (request, response, next) => {
+notesRouter.post('/', (request, response, next) => {
   const body = request.body
 
   if (body.content.length === 0) {
@@ -45,7 +45,7 @@ notesRouter.post('/api/notes', (request, response, next) => {
     .catch((error) => next(error))
 })
 
-notesRouter.put('/api/notes/:id', (request, response, next) => {
+notesRouter.put('/:id', (request, response, next) => {
   const body = request.body
 
   console.log('request.body: ', request.body)
@@ -62,7 +62,7 @@ notesRouter.put('/api/notes/:id', (request, response, next) => {
     .catch((error) => next(error))
 })
 
-notesRouter.delete('/api/notes/:id', (request, response, next) => {
+notesRouter.delete('/:id', (request, response, next) => {
   Note.findByIdAndDelete(request.params.id)
     .then(() => {
       response.result(204).end()
