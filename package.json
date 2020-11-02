@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:ui": "rm -rf build && cd ../../noteapp/ && npm run build --prod && cp -r build ../NodeJS/note_backend/",
     "deploy": "git push heroku master",
     "deploy:full": "npm run build:ui && git commit -m uibuild && npm run deploy",
-    "logs:prod": "heroku logs --tail"
+    "logs:prod": "heroku logs --tail",
+    "lint": "eslint ."
   },
   "proxy": "http:localhost:3001",
   "author": "Jacob Lepler",
@@ -23,6 +24,7 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "eslint": "^7.12.1",
     "nodemon": "^2.0.6"
   }
 }

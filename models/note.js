@@ -1,27 +1,4 @@
-const mongoose = require("mongoose");
-require('dotenv').config()
-
-// OLD
-// const password = process.argv[2];
-// NEW
-
-const url = process.env.REACT_APP_MONGODB_URI;
-
-console.log("connecting to ", url);
-
-mongoose
-  .connect(url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true,
-  })
-  .then((result) => {
-    console.log("Connected to MongoDB");
-  })
-  .catch((error) => {
-    console.log("Error connecting to MongoDB: ", error.message);
-  });
+const mongoose = require('mongoose')
 
 const noteSchema = new mongoose.Schema({
   content: {
@@ -34,14 +11,14 @@ const noteSchema = new mongoose.Schema({
     required: true,
   },
   important: Boolean,
-});
+})
 
-noteSchema.set("toJSON", {
+noteSchema.set('toJSON', {
   transform: (document, returnedObject) => {
-    returnedObject.id = returnedObject._id.toString();
-    delete returnedObject._id;
-    delete returnedObject.__v;
+    returnedObject.id = returnedObject._id.toString()
+    delete returnedObject._id
+    delete returnedObject.__v
   },
-});
+})
 
-module.exports = mongoose.model("Note", noteSchema);
+module.exports = mongoose.model('Note', noteSchema)
