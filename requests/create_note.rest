@@ -1,7 +1,8 @@
 POST http://localhost:3001/api/notes
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1sdXVrYWkiLCJpZCI6IjVmYjE3NGY2MzcxNmYxM2RjODZjODUxYyIsImlhdCI6MTYwNTQ3MzI5Mn0._Pkt_lPkO6ZL5MRta0qrs-QZrz4Tq3_C6dW_RwJ6gvs
 
 {
-    "content": "2short",
-    "important": false
+    "content": "Testing the json web token authorization",
+    "important": true
 }
