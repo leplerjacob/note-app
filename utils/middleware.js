@@ -16,7 +16,9 @@ const requestLogger = morgan((tokens, req, res) => {
 })
 
 const unknownEndpoint = (error, request, response) => {
-  response.status(400).send({ error: 'unknown endpoint' })
+  if (error) {
+    return response.status(400).send({ error: 'unknown endpoint' })
+  }
 }
 
 const errorHandler = (error, request, response, next) => {
@@ -28,7 +30,7 @@ const errorHandler = (error, request, response, next) => {
   } else if (error.name === 'JsonWebTokenError') {
     return response.status(401).json({ error: 'invalid token' })
   }
-  next(error)
+  next()
 }
 
 module.exports = {
