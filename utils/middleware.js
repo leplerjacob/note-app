@@ -15,7 +15,7 @@ const requestLogger = morgan((tokens, req, res) => {
   }
 })
 
-const unknownEndpoint = (error, request, response) => {
+const unknownEndpoint = (error, request, response, next) => {
   if (error) {
     return response.status(400).send({ error: 'unknown endpoint' })
   }

@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node index.js",
-    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "start": "cross-env NODE_ENV=development node index.js",
+    "dev": "nodemon index.js",
     "build:ui": "rm -rf build && cd ../../noteapp/ && npm run build --prod && cp -r build ../NodeJS/note_backend/",
     "deploy": "git push heroku master",
     "deploy:full": "npm run build:ui && git commit -m uibuild && npm run deploy",
     "logs:prod": "heroku logs --tail",
     "lint": "eslint .",
-    "test": "cross-env NODE_ENV=test jest --verbose"
+    "test": "cross-env NODE_ENV=test jest --verbose",
+    "start:test": "cross-env NODE_ENV=test node index.js"
   },
   "proxy": "http:localhost:3001",
   "author": "Jacob Lepler",
